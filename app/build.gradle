@@ -1,0 +1,38 @@
+plugins {
+    id 'com.android.application'
+}
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+android {
+    namespace 'com.dayflow.app'
+    compileSdk 37
+signingConfigs {
+    release {
+        storeFile rootProject.file(keystoreProperties['storeFile'])
+        storePassword keystoreProperties['storePassword']
+        keyAlias keystoreProperties['keyAlias']
+        keyPassword keystoreProperties['keyPassword']
+    }
+}
+    defaultConfig {
+        applicationId 'com.dayflow.app'
+        minSdk 26
+        targetSdk 37
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+    release {
+        signingConfig signingConfigs.release
+        minifyEnabled false
+    }
+}
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+}

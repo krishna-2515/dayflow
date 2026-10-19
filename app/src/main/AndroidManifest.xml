@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <application
+        android:allowBackup="true"
+        android:label="DayFlow"
+    android:icon="@drawable/dayflow_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DayFlow">
+
+        <!-- Main Dashboard -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Settings Screen -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+            <activity android:name=".WeeklyReportActivity" android:exported="false" />
+            <activity
+    android:name=".ScheduleActivity"
+    android:exported="false" />
+    <activity
+    android:name=".BrainPuzzleActivity"
+    android:exported="false" />
+    <activity android:name=".WaterHistoryActivity" android:exported="false" />
+<receiver
+    android:name=".ReminderReceiver"
+    android:exported="false" />
+
+<service
+    android:name=".ReminderService"
+    android:exported="false"
+    android:foregroundServiceType="mediaPlayback" />
+
+    </application>
+
+</manifest>
+
+
+
+
+
+
+
+
+

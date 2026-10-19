@@ -1,0 +1,23 @@
+﻿# Private signing files
+keystore.properties
+*.jks
+*.keystore
+
+# Local machine settings
+local.properties
+
+# Gradle generated files
+.gradle/
+build/
+app/build/
+
+# Logs and generated packages
+*.log
+log.txt
+*.apk
+*.aab
+
+# IDE files
+.idea/
+*.iml
+.vscode/
